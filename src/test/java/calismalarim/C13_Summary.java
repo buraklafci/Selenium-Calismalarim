@@ -1,6 +1,6 @@
 package calismalarim;
 
-public class C13 {
+public class C13_Summary {
 //    Test01 :
 //            1- amazon gidin
 //2- Arama kutusunun solundaki dropdown menuyu handle edip listesini ekrana yazdırın
