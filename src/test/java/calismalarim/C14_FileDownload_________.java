@@ -27,18 +27,19 @@ public class C14_FileDownload_________ {
     // Iki tane metod oluşturun : isExist( ) ve downloadTest( )
 
     @Test
-    public void downloadTest() {
+    public void downloadTest() throws InterruptedException {
 // downloadTest ( ) metodunun icinde aşağıdaki testi yapalim:
 //  https://the-internet.herokuapp.com/download adresine gidelim.
         driver.get("https://the-internet.herokuapp.com/download");
 //  LambdaTest.txt dosyasını indirelim
         driver.findElement(By.xpath("//a[text()='LambdaTest.txt']")).click();
 
+   Thread.sleep(5000);
     }
     @Test(dependsOnMethods ="downloadTest" )
     public void isExist() {
-
         //Yukarda indirme islemi biraz zaman aldigi icin hata almamak icin EXPLICITWAIT kullanmaliyiz
+        //????????????
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(15));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[text()='LambdaTest.txt']")));
         // Ardından isExist( ) methodunda dosyanın başarıyla indirilip indirilmediğini test edelim
