@@ -5,7 +5,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,7 +13,7 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 import java.util.List;
 
-public class C13_Summary {
+public class C13_Summary_______________ {
     WebDriver driver;
     SoftAssert softAssert;
     Select select;
