@@ -21,7 +21,7 @@ public class C16_ExplicitWait {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         //2. Iki tane metod olusturun : implicitWait() , explicitWait()
         //Iki metod icin de asagidaki adimlari test edin.
     }

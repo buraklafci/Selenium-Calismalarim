@@ -17,7 +17,7 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 
 public class Ortak {
-     WebDriver  driver;
+    WebDriver  driver;
     Actions action=new Actions(driver);
     static String  urunTitle;
 
