@@ -12,11 +12,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
-public class Ortak {
+public class Ortak____________ {
     WebDriver  driver;
     Actions action=new Actions(driver);
     static String  urunTitle;
@@ -39,7 +38,7 @@ public class Ortak {
    public void Test(){
 
        //     1. Amazon sayfasını acalım
-       driver.get("https://www.amazon.com.tr");
+       driver.get("https://www.amazon.com");
 
        //     2. sayfanın acıldıgını dogrulayalım
 
