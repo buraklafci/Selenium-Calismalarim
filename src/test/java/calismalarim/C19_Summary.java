@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -47,5 +48,10 @@ public class C19_Summary {
         //8. "Double click me" butonunu cift tiklayin
         WebElement button4=driver.findElement(By.xpath("//h2"));
         actions.doubleClick(button4).perform();
+    }
+    @AfterClass
+    public void tearDown() {
+
+        driver.quit();
     }
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -72,5 +73,10 @@ public class C18_Faker {
         Assert.assertFalse(female.isSelected());
         //13. Sayfayi kapatin
         driver.close();
+    }
+    @AfterClass
+    public void tearDown() {
+
+        driver.quit();
     }
 }

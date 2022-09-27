@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,4 +39,9 @@ public class C15_FileUpload {
         WebElement fileUploded = driver.findElement(By.xpath("//h3"));
         Assert.assertTrue(fileUploded.isDisplayed());
 }
+    @AfterClass
+    public void tearDown() {
+
+        driver.quit();
+    }
 }

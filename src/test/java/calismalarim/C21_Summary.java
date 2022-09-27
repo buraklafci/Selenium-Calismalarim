@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -59,5 +60,10 @@ public class C21_Summary {
         //10.Ilk sayfaya donuldugunu test edin
         WebElement ilkSayfa=driver.findElement(By.xpath("//h1[text()='My Courses & Promo Codes']"));
         Assert.assertTrue(ilkSayfa.isDisplayed());
+    }
+    @AfterClass
+    public void tearDown() {
+
+        driver.quit();
     }
 }

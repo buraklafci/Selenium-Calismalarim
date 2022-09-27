@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -42,5 +43,10 @@ public class C17_ExplicitWait {
         Assert.assertTrue(itsEnabled.isDisplayed());
         //7. Textbox’in etkin oldugunu(enabled) dogrulayın
         Assert.assertTrue(textBox.isEnabled());
+    }
+    @AfterClass
+    public void tearDown() {
+
+        driver.quit();
     }
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -52,5 +53,9 @@ public class C20_Summary {
         //7. "http://webdriveruniversity.com/index.html" adresine gittigini test edin
         WebElement newPage=driver.findElement(By.xpath("//h1[@style='color:#f45950;']"));
         Assert.assertTrue(newPage.isDisplayed());
+    } @AfterClass
+    public void tearDown() {
+
+        driver.quit();
     }
 }
