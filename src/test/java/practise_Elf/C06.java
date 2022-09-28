@@ -51,6 +51,7 @@ public class C06 {
         secondEmoji.click();
         // tüm ikinci emoji ogelerini tiklayin
         List<WebElement> emojiOgeler=driver.findElements(By.xpath("//div[@id='nature']/div/img")); //iceri girebilmek icin absolute locate kullandik
+        //   /div/img yerine //img yazilabilir
         //bu sekilde butun ogelere tiklayabiliriz
         for (WebElement w:emojiOgeler
              ) {
@@ -62,6 +63,7 @@ public class C06 {
 
         // parent iframe e geri donun
         driver.switchTo().defaultContent();
+
         // formu doldurun, (istediginiz metinlerle)
         List<WebElement>metinGirList=driver.findElements(By.xpath("//input[@class='mdl-textfield__input']"));
         List<String>metinler=new ArrayList<>(Arrays.asList("Bir","iframe","sorusu","bu","kadar","eglenceli","olabilir","sizce de","oyle degil mi?","",""));
