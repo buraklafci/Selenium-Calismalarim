@@ -1,4 +1,4 @@
-package practise_Elf;
+package practice_Elf;
 
 import org.testng.annotations.Test;
 

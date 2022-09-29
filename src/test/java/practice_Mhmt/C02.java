@@ -1,4 +1,4 @@
-package practise_Mhmt;
+package practice_Mhmt;
 
 import TestBase.BeforeClassAfterClass;
 import com.github.javafaker.Faker;

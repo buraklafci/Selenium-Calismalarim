@@ -1,4 +1,4 @@
-package practise_Elf;
+package practice_Elf;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

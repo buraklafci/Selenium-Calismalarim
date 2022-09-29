@@ -1,4 +1,4 @@
-package practise_Elf;
+package practice_Elf;
 
 import TestBase.BeforeClassAfterClass;
 import org.openqa.selenium.By;
