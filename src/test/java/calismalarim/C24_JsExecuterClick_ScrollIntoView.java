@@ -4,6 +4,7 @@ import TestBase.BeforeClassAfterClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Test;
 
 public class C24_JsExecuterClick_ScrollIntoView extends BeforeClassAfterClass {
@@ -21,3 +22,15 @@ public class C24_JsExecuterClick_ScrollIntoView extends BeforeClassAfterClass {
 
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+

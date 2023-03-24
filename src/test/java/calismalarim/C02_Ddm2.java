@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -20,13 +21,17 @@ public class C02_Ddm2 {
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
     @AfterClass
     public void tearDown() {
+
         // driver.quit();
     }
 
@@ -69,5 +74,7 @@ public class C02_Ddm2 {
      String actual=driver.findElement(By.xpath("//div[text()='Foreign currency cash was successfully purchased.']")).getText();
      String expected="Foreign currency cash was successfully purchased.";
      softAssert.assertEquals(actual, expected);
+
+     softAssert.assertAll();
     }
 }

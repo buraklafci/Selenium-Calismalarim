@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,7 +20,10 @@ public class C09_WindowHandle2 {
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -47,7 +51,7 @@ public class C09_WindowHandle2 {
         softAssert.assertEquals(actual3,"New Window");
 //           ● Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu
 //           doğrulayın
-        driver.switchTo().window(handle1);
+        driver.switchTo().window(windowHandles.get(0));
         String actual4=driver.getTitle();
         softAssert.assertEquals(actual4,"The Internet");
     }

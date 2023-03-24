@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,7 +19,10 @@ public class C06_Iframe {
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -39,6 +43,7 @@ public class C06_Iframe {
         Thread.sleep(5000);
 //ilk iframe'den çıkıp ana sayfaya dönünüz
         driver.switchTo().defaultContent();
+       // driver.switchTo().parentFrame();
         driver.navigate().refresh();
 //ikinci iframe'deki (Jmeter Made Easy) linke (https://www.guru99.com/live-selenium-project.html)
 //tıklayınız.

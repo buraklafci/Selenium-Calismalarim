@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -18,7 +19,10 @@ public class C08_WindowHandle {
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -44,6 +48,7 @@ public class C08_WindowHandle {
         softAssert.assertTrue(driver.getTitle().contains("Walmart"),"sayfa basligi Walmart icermiyor");
 //● Ilk acilan sayfaya donun ve amazon sayfasina dondugunuzu test edin
         driver.switchTo().window(handle);
+
 
     }//2. ve 3. reqirement'da beklenen hatali sonuc veriyor
     @AfterClass

@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,7 +20,10 @@ public class C05_SoftAssert {
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -45,14 +49,15 @@ public class C05_SoftAssert {
         WebElement actualWE=driver.findElement(By.xpath("//div[@class='searchResultSummaryBar-CbyZhv5896ASVcYBLKmx']"));
         String actual=actualWE.getText();
         String expected="araba";
-        softAssert.assertTrue(actual.contains(expected));
+        softAssert.assertTrue(actual.contains(expected),"araba iceriyor");
 //	Sonuc yazisinin “oto” kelimesi icermedigini dogrulayin
         softAssert.assertFalse(actual.contains("oto"));
+        softAssert.assertAll();
 
     }
     @AfterClass
     public void tearDown() {
-        softAssert.assertAll();
+
         driver.close();
     }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -22,7 +23,10 @@ public class C01_Ddm {
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -52,7 +56,8 @@ public class C01_Ddm {
 //            1. Kategori menusunden Books secenegini secin
             WebElement ddm=driver.findElement(By.cssSelector("#searchDropdownBox"));
             Select select=new Select(ddm);
-            select.selectByVisibleText("Books");
+           select.selectByVisibleText("Books");
+            //select.selectByValue("search-alias=stripbooks-intl-ship");
 //2. Arama kutusuna Java yazin ve aratin
             driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
 //3. Bulunan sonuc sayisini yazdirin
